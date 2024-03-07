@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>formValidation</title>
+</head>
+<body>
+  <div class="main">
+    <form action="" method="POST" class="form" id="register-form">
+      <h3 class="heading">Register members</h3>
+      <p class="desc">Let's learn programming together for free</p>
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Full-name</label>
+        <input type="text" id="fullname" name="fullname" rules="required" placeholder="Eg. David Clive" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" rules="required|email" placeholder="Eg. email@domain.com" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" rules="required|min:6" placeholder="Enter password" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <button class="form-submit">Register</button>
+    </form>
+  </div>
+  <script src="./validator.js"></script>
+  <script>
+
+    const form = new Validator('#register-form')
+
+    form.onSubmit = function (formData) {
+      console.log(formData)
+    }
+
+  </script>
+</body>
+</html>
